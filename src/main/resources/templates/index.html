@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>zelda</title>
+    <link rel="stylesheet" href="../src/css/layui.css" th:href="@{/layui/css/layui.css}">
+</head>
+<body>
+<div class="layui-header" style="background-color: #0C0C0C">
+    22
+</div>
+<div class="layui-body" style="background-color: red">
+    444
+</div>
+<div class="layui-footer" style="background-color: green">
+    555
+</div>
+<script src="../src/layui.js" th:src="@{/layui/layui.all.js}" ></script>
+<script>
+    ;!function(){
+        //无需再执行layui.use()方法加载模块，直接使用即可
+        var form = layui.form
+            ,layer = layui.layer;
+
+        //…
+    }();
+</script>
+</body>
+</html>
