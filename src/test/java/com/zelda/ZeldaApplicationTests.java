@@ -1,6 +1,7 @@
 package com.zelda;
 
 import com.zelda.util.HttpUtil;
+import com.zelda.util.PropertiesUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,8 +15,8 @@ public class ZeldaApplicationTests {
 
 	@Test
 	public void contextLoads() throws IOException {
-		String s = HttpUtil.postRequest("www.baidu.com", null);
-		System.out.println(s);
+		String resource = PropertiesUtil.getPropertiesValue("baidu.clientId");
+		System.out.println(resource);
 	}
 
 }

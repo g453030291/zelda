@@ -31,12 +31,31 @@ public class HttpUtil {
 			.build();
 
 	/**
+	 * get请求
+	 * @param url
+	 * @return
+	 * @throws IOException
+	 */
+	public static String getRequest(String url) {
+		if(StringUtils.isEmpty(url)){
+			throw new NullPointerException("url为空");
+		}
+		Request request = new Request.Builder().url(url).build();
+		try(Response response = CLIENT.newCall(request).execute()){
+			return response.body().toString();
+		}catch (IOException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
 	 * post请求,表单提交
 	 * @param url
 	 * @param map
 	 * @return
 	 */
-	public static String postRequest(String url, Map<String,String> map) throws IOException {
+	public static String postRequest(String url, Map<String,String> map) {
 		if(StringUtils.isEmpty(url) || map == null || map.isEmpty()){
 			throw new NullPointerException("url 或 map 为空");
 		}
@@ -52,9 +71,9 @@ public class HttpUtil {
 		try (Response response = CLIENT.newCall(request).execute()){
 			return response.body().string();
 		}catch (IOException e){
-			log.debug("http post fail");
-			throw new IOException(e.getMessage(),e.fillInStackTrace());
+			e.printStackTrace();
 		}
+		return null;
 	}
 
 }
