@@ -1,6 +1,5 @@
 package com.zelda.util;
 
-import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.springframework.util.StringUtils;
 
@@ -12,7 +11,6 @@ import java.util.concurrent.TimeUnit;
  * http工具类
  * @author mantou
  */
-@Slf4j
 public class HttpUtil {
 
 	/**
@@ -68,6 +66,8 @@ public class HttpUtil {
 				.url(url)
 				.post(requestBody)
 				.build();
+		System.out.println(request.toString());
+		System.out.println(request.body().toString());
 		try (Response response = CLIENT.newCall(request).execute()){
 			return response.body().string();
 		}catch (IOException e){
