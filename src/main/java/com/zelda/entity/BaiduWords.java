@@ -1,10 +1,5 @@
 package com.zelda.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class BaiduWords {
 
 	/**
@@ -55,4 +50,72 @@ public class BaiduWords {
 	 */
 	public Boolean probability;
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getLanguage_type() {
+		return language_type;
+	}
+
+	public void setLanguage_type(String language_type) {
+		this.language_type = language_type;
+	}
+
+	public Boolean getDetect_direction() {
+		return detect_direction;
+	}
+
+	public void setDetect_direction(Boolean detect_direction) {
+		this.detect_direction = detect_direction;
+	}
+
+	public Boolean getDetect_language() {
+		return detect_language;
+	}
+
+	public void setDetect_language(Boolean detect_language) {
+		this.detect_language = detect_language;
+	}
+
+	public Boolean getParagraph() {
+		return paragraph;
+	}
+
+	public void setParagraph(Boolean paragraph) {
+		this.paragraph = paragraph;
+	}
+
+	public Boolean getProbability() {
+		return probability;
+	}
+
+	public void setProbability(Boolean probability) {
+		this.probability = probability;
+	}
+
+	@Override
+	public String toString() {
+		return "BaiduWords{" +
+				"image='" + image + '\'' +
+				", url='" + url + '\'' +
+				", language_type='" + language_type + '\'' +
+				", detect_direction=" + detect_direction +
+				", detect_language=" + detect_language +
+				", paragraph=" + paragraph +
+				", probability=" + probability +
+				'}';
+	}
 }

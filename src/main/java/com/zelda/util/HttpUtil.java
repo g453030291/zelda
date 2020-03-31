@@ -1,5 +1,6 @@
 package com.zelda.util;
 
+import com.zelda.entity.AccessToken;
 import okhttp3.*;
 import org.springframework.util.StringUtils;
 
@@ -40,7 +41,7 @@ public class HttpUtil {
 		}
 		Request request = new Request.Builder().url(url).build();
 		try(Response response = CLIENT.newCall(request).execute()){
-			return response.body().toString();
+			return response.body().string();
 		}catch (IOException e){
 			e.printStackTrace();
 		}
@@ -66,8 +67,6 @@ public class HttpUtil {
 				.url(url)
 				.post(requestBody)
 				.build();
-		System.out.println(request.toString());
-		System.out.println(request.body().toString());
 		try (Response response = CLIENT.newCall(request).execute()){
 			return response.body().string();
 		}catch (IOException e){
