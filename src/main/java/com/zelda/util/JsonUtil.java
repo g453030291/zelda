@@ -21,11 +21,11 @@ public class JsonUtil {
 													.setDateFormat("yyyy-MM-dd HH:mm:ss")
 													.disableHtmlEscaping()
 													.create();
-	
+
 	private static final JsonParser jsonParser = new JsonParser();
-	
+
 	private JsonUtil() {
-		
+
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class JsonUtil {
 	public static Gson getGsonInstance() {
 		return gson;
 	}
-	
+
 	/**
 	 * Object2JsonString
 	 * @param object
@@ -44,11 +44,11 @@ public class JsonUtil {
 	public static String toJsonString(Object object) {
 		return gson.toJson(object);
 	}
-	
+
 	public static String toJsonString(Object object,Type type) {
 		return gson.toJson(object, type);
 	}
-	
+
 	/**
 	 * JsonString2Object
 	 * @param json
@@ -57,7 +57,7 @@ public class JsonUtil {
 	public static Object fromJsonString(String json) {
 		return gson.fromJson(json, Object.class);
 	}
-	
+
 	public static Object fromJsonString(String json,Type type) {
 		return gson.fromJson(json, type);
 	}
@@ -65,7 +65,7 @@ public class JsonUtil {
 	public static Object fromJsonString(Reader reader,Type type){
 		return gson.fromJson(reader,type);
 	}
-	
+
 	/**
 	 * String2JsonObject
 	 * @param str
@@ -74,7 +74,7 @@ public class JsonUtil {
 	public static JsonObject toJsonObject(String str) {
 		return jsonParser.parse(str).getAsJsonObject();
 	}
-	
+
 	/**
 	 * String2JsonArray
 	 * @param str
@@ -109,7 +109,7 @@ public class JsonUtil {
 			return false;
 		}
 	}
-	
+
 	/**
 	 *  判断string是否为一个json数组
 	 * @param str

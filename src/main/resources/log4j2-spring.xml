@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration strict="true" monitorInterval="3600">
+
+  <Properties>
+  	<!-- 控制台输出日志级别 -->
+  	<Property name="ConsoleLevel">info</Property>
+  	<!-- log文件存放路径 -->
+  	<Property name="path">/Users/gemushen/log/</Property>
+    <!-- log文件名前缀 -->
+    <Property name="fileName">zelda</Property>
+  </Properties>
+
+  <Appenders>
+
+    <Appender type="Console" name="ConsoleAppender">
+		<Layout type="PatternLayout" pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %class{36} %M - %m%n"/>
+    </Appender>
+
+
+	<RollingFile name="Rolling-debug" fileName="${path}/debug/${fileName}-debug.log" filePattern="${path}/debug/$${date:yyyy-MM}/${fileName}-debug-%d{yyyy-MM-dd}-%i.log.zip">
+         <PatternLayout>
+           <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %class{36} %M - %m%n</pattern>
+         </PatternLayout>
+         <SizeBasedTriggeringPolicy size="100M" />
+         <ThresholdFilter level="warn" onMatch="DENY" onMismatch="ACCEPT"/>
+         <DefaultRolloverStrategy max="50"/>
+    </RollingFile>
+
+    <RollingFile name="Rolling-warn" fileName="${path}/warn/${fileName}-warn.log" filePattern="${path}/warn/$${date:yyyy-MM}/${fileName}-warn-%d{yyyy-MM-dd}-%i.log.zip">
+         <PatternLayout>
+           <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %class{36} %M - %m%n</pattern>
+         </PatternLayout>
+         <SizeBasedTriggeringPolicy size="100M" />
+         <DefaultRolloverStrategy max="50"/>
+    </RollingFile>
+
+  </Appenders>
+
+  <!-- 设置三个日志记录器-->
+  <Loggers>
+	<Root level="all">
+	  <!-- 1.控制台，输出info级别 -->
+      <AppenderRef ref="ConsoleAppender" level="${ConsoleLevel}"/>
+      <!-- 2.文件记录debug、info级别日志 -->
+      <AppenderRef ref="Rolling-debug" level="debug"/>
+      <!-- 3.文件记录warn及以上级别日志 -->
+      <AppenderRef ref="Rolling-warn" level="warn"/>
+    </Root>
+  </Loggers>
+
+</Configuration>

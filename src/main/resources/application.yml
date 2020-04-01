@@ -3,7 +3,6 @@ server:
   servlet:
     context-path: /
 
-
 spring:
   datasource:
     druid:
@@ -44,3 +43,7 @@ mybatis:
     default-statement-timeout: 10
     auto-mapping-unknown-column-behavior: warning
     use-actual-param-name: false
+
+logging:
+  level:
+    root: info
