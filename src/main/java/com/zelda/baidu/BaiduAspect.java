@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class BaiduAspect {
 
-	@Pointcut("execution(public * com.zelda.baidu.Words.*(..)))")
+	@Pointcut("execution(* com.zelda.baidu.Words.*(..))")
 	public void BrokerAspect(){
 		System.out.println("切入了");
 	}

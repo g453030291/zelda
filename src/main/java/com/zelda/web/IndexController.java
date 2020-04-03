@@ -1,5 +1,6 @@
 package com.zelda.web;
 
+import com.zelda.baidu.Words;
 import com.zelda.entity.BaiduWords;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ public class IndexController {
 	public String index(String param){
 		BaiduWords baiduWords = new BaiduWords();
 		baiduWords.setImage(param);
-		return null;
+		return Words.commonWords(baiduWords);
 	}
+
 }
